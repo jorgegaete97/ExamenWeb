@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{% if user.is_staff %}
+{% block navbar %}
+<div class="bs-docs-section clearfix">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid" >
+              <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'index:Menu' %}">INICIO</a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Clientes' %}">CLIENTES</a>
+                </div>
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Asignaciones' %}">ASIGNAR</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">OPCIONES<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'logout' %}">SALIR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+              </div>
+
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div align="center">
+  <h1>ELIMINAR CLIENTE</h1>
+</div>
+
+
+<form method="post" style="margin:20px 100px" enctype="multipart/form-data">
+
+  {% csrf_token %}
+
+  <h3> ¿Quieres eliminar el cliente {{ cliente.nombre }} </h3>
+  
+  <button class="btn btn-primary btn-block btn-success" type="submit">Eliminar</button>
+  <a class="btn btn-primary btn-block" href="{% url 'index:Clientes' %}">VOLVER</a>
+
+</form>
+
+
+
+
+{% endblock %}
+{% endif %}
+
+
+
+{% endblock %}

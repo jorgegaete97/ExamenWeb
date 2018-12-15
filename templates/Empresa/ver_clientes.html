@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+{% block navbar %}
+<div class="bs-docs-section clearfix">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid" >
+              <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'index:Menu' %}">INICIO</a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Menu' %}">CLIENTES</a>
+                </div>
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Menu' %}"></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">OPCIONES<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'logout' %}">SALIR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+              </div>
+
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<table class="table table-bordered" style="font-size: 20px; margin-left: 5%;margin-right: 5%; width: 90%; border: 2px solid;">
+	<thead>
+		<tr>
+
+			<td style="border:2px solid;"><center>Nombres</center></td>
+			<td style="border:2px solid;"><center>Direccion</center></td>
+			<td style="border:2px solid;"><center>Ciudad</center></td>
+			<td style="border:2px solid;"><center>Comuna</center></td>
+			<td style="border:2px solid;"><center>Telefono</center></td>
+			<td style="border:2px solid;"><center>Correo</center></td>
+			<td style="border:2px solid;"><center>Accion</center></td>
+
+		</tr>
+	</thead>
+
+	<tbody>
+
+<div align="center">
+	<h1> TUS CLIENTES ASIGNADOS </h1>
+</div>
+<br>
+
+		{% if Info %}
+		{% for informacion in Info %}
+
+
+		<tr>
+			<td style="border:2px solid;"><center>{{ informacion.nombre }}</center></td>
+			<td style="border:2px solid;"><center>{{ informacion.direccion }}</center></td>
+			<td style="border:2px solid;"><center>{{ informacion.ciudad }}</center></td>
+			<td style="border:2px solid;"><center>{{ informacion.comuna }}</center></td>
+			<td style="border:2px solid;"><center>{{ informacion.telefono }}</center></td>
+			<td style="border:2px solid;"><center>{{ informacion.correo }}</center></td>
+			<td style="border:2px solid;">
+				<center><a class="btn btn-primary" href="{% url 'trabajador:Orden' informacion.id %}">REALIZAR ORDEN</a></center>
+			</td>
+		</tr>
+
+		{% endfor %}
+		{% endif %}
+
+	</tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}
+{% endblock %}

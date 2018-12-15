@@ -1,0 +1,140 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{% if user.is_staff %}
+{% block navbar %}
+<div class="bs-docs-section clearfix">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid" >
+              <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'index:Menu' %}">INICIO</a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Clientes' %}">CLIENTES</a>
+                </div>
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Asignaciones' %}">ASIGNAR</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">OPCIONES<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'logout' %}">SALIR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+              </div>
+
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="width: 100%;">
+
+  <center>
+    <h1>ADMINISTRADOR</h1>
+  </center>
+
+  <div>
+    <center><img src="/static/img/admin.png" alt="Logotipo" width="300px" border="0" style="border-radius: 300px; margin-bottom: 20px"></center>
+    <center><h1 style="margin-top: -20px;">{{ user.username }}</h1></center>
+  </div>
+
+  <div>
+      <br>
+      <br>
+      <center><a class="btn btn-primary" href="{% url 'index:Clientes' %}" style="font-size: 30px; margin-bottom: 10px; width: 300px; height: 50px; background-color: #A09E9E;">CLIENTES</a></center>
+      <center><a class="btn btn-primary" href="{% url 'index:Asignaciones' %}" style="font-size: 30px; margin-bottom: 10px;width: 300px; height:50px; background-color: #A09E9E">ASIGNACIONES</a></center>
+      <br>
+  </div>
+
+  
+
+</div>
+
+
+{% endblock %}
+
+{% else %}
+<div class="bs-docs-section clearfix">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid" >
+              <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'index:Menu' %}">INICIO</a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'trabajador:Clientes' %}">CLIENTES</a>
+                </div>
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index:Menu' %}"></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">OPCIONES<span class="caret"></span></a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'logout' %}">SALIR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+              </div>
+
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="width: 100%;">
+
+  <center>
+    <h1>TRABAJADOR</h1>
+  </center>
+
+  <div>
+    <center><img src="/static/img/usuario.png" alt="Logotipo" width="300px" border="0" style="border-radius: 300px; margin-bottom: 20px"></center>
+    <center><h1 style="margin-top: -20px;">{{ user.first_name }}&ensp;{{ user.last_name }}</h1></center>
+  </div>
+
+  <div>
+      <br>
+      <br>
+      <center><a class="btn btn-primary" href="{% url 'trabajador:Clientes' %}" style="font-size: 30px; margin-bottom: 10px; width: 300px; height: 50px; background-color: #A09E9E;">CLIENTES</a></center>
+
+      <center><a class="btn btn-primary" href="{% url 'trabajador:Realizadas' %}" style="font-size: 30px; margin-bottom: 10px; width: 300px; height: 50px; background-color: #A09E9E;">VER ORDENES</a></center>
+  </div>
+
+</div>
+
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,90 @@
+
+{% extends 'base/base_login.html' %}
+{% block navbar %}
+
+{% endblock %}
+
+{% block content %}
+
+<center>
+	<h1 style="color: red;">EMPRESA DE ASCENSORES KOKENDO</h1>
+</center>
+
+
+
+<div style="margin-top: 50px;">
+	<center>
+		<h1 style="color: white;">INICIAR SESION</h1>
+	</center>
+	<center>
+		<img src="static/img/user.png" style="width: 200px;">
+	</center>
+		<center>
+
+
+
+<form method="post">
+{% csrf_token %}
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-group" style="margin-top: 10px;">
+
+			<label for="username" style="font-size: 20px; color: white;">NOMBRE DE USUARIO O CORREO ELECTRONICO</label>
+			<input class="form-control" type="text" name="username">
+				
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-group">
+
+			<label for="password" style="font-size: 20px; color: white;">CONTRASEÑA</label>
+			<input class="form-control" type="password" name="password">
+				
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-group">
+
+			<a href="http://127.0.0.1:8000/pri/registrar" style="font-size: 20px; color: white;">Registrarse</a>
+			<input class="btn btn-primary" type="submit" value="Ingresar" style="font-size: 20px;">
+				
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-group">
+
+			<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary form-control">INICIAR SESION CON FACEBOOK</a>
+				
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-group">
+
+			<a href="{% url 'social:begin' 'github' %}" class="btn btn-primary form-control" style="background-color: #A09E9E;">INICIAR SESION CON GITHUB</a>
+				
+		</div>
+	</div>
+</div>
+
+</form>
+
+
+</center>
+</div>
+
+    
+
+{% endblock %}

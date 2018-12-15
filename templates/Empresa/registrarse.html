@@ -1,0 +1,138 @@
+{% extends 'base/base_login.html' %}
+{% block navbar %}
+
+{% endblock %}
+
+{% block content %}
+
+<center>
+	<h1 style="color: red;">REGISTRO DE USUARIO</h1>
+</center>
+
+
+<form method="post">
+{% csrf_token %}
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group" style="margin-top: 20px;">
+
+			<label style="font-size: 20px; color: white;">Nombre</label>
+			<input class="form-control" type="text" name="first_name">
+
+			{% for error in form.first_name.errors %}
+			<div class="alert alert-danger">
+                <strong> Debe ingresar al menos un nombre </strong>
+            </div>
+            {% endfor %}
+				
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<label style="font-size: 20px; color: white;">Apellido</label>
+			<input class="form-control" type="text" name="last_name">
+
+			{% for error in form.last_name.errors %}
+			<div class="alert alert-danger">
+                <strong> Debe ingresar al menos un apellido </strong>
+            </div>
+            {% endfor %}
+				
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<label style="font-size: 20px; color: white;">Nombre de usuario</label>
+			<input class="form-control" type="text" name="username">
+
+			{% for error in form.username.errors %}
+			<div class="alert alert-danger">
+                <strong> Debe ingresar un nombre de usuario </strong>
+            </div>
+            {% endfor %}
+				
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<label style="font-size: 20px; color: white;">Correo</label>
+			<input class="form-control" type="text" name="email">
+
+			{% for error in form.email.errors %}
+			<div class="alert alert-danger">
+                <strong> Debe ingresar un correo valido </strong>
+            </div>
+            {% endfor %}
+				
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<label style="font-size: 20px; color: white;">Contraseña</label>
+			<input class="form-control" type="password" name="password1">
+				
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<label style="font-size: 20px; color: white;">Repita la Contraseña</label>
+			<input class="form-control" type="password" name="password2">
+
+			{% for error in form.first_name.errors %}
+			<div class="alert alert-danger">
+                <strong> Las contraseñas no coinciden </strong>
+            </div>
+            {% endfor %}
+				
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="form-group">
+
+			<button class="btn btn-primary"type="submit" style="font-size: 20px;">Registrar</button>
+			<a class="btn btn-primary" href="http://127.0.0.1:8000/" style="font-size: 20px;">volver</a>
+				
+		</div>
+	</div>
+</div>
+
+
+</form>
+
+
+</div>
+</center>
+</div>
+
+    
+{% endblock %}
